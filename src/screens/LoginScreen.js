@@ -38,41 +38,45 @@ export default function LoginScreen({navigation}) {
         //     }
         // });
         // Alert.alert("hi")
-
-        await fetch(`http://localhost:3001/users/login`, {
-            method: 'POST',
-            body: JSON.stringify({user_name, password}),
-            headers: {
-                'content-type': 'application/json'
-            }
+        navigation.reset({
+            index: 0,
+            routes: [{name: 'Sidebar'}],
         })
-            .then(function (response) {
-                return response
-            })
-            .then(response => response.json())
-            .then(({user, token}) => {
-                console.log(token)
-                // alert(token)
-                setTimeout(() => {
-                    localStorage.setItem('id_token', token)
-                })
-                if (token) {
-                    navigation.reset({
-                        index: 0,
-                        routes: [{name: 'Sidebar'}],
-                    })
-                } else {
-                    Alert.alert("Invalid Credentials")
-                    navigation.reset({
-                        index: 0,
-                        routes: [{name: 'LoginScreen'}],
-                    })
-                }
-            })
 
-            .catch(function (error) {
-                console.log(error);
-            });
+        // await fetch(`http://localhost:3001/users/login`, {
+        //     method: 'POST',
+        //     body: JSON.stringify({user_name, password}),
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     }
+        // })
+        //     .then(function (response) {
+        //         return response
+        //     })
+        //     .then(response => response.json())
+        //     .then(({user, token}) => {
+        //         console.log(token)
+        //         // alert(token)
+        //         setTimeout(() => {
+        //             localStorage.setItem('id_token', token)
+        //         })
+        //         if (token) {
+        //             navigation.reset({
+        //                 index: 0,
+        //                 routes: [{name: 'Sidebar'}],
+        //             })
+        //         } else {
+        //             Alert.alert("Invalid Credentials")
+        //             navigation.reset({
+        //                 index: 0,
+        //                 routes: [{name: 'LoginScreen'}],
+        //             })
+        //         }
+        //     })
+        //
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
 
 
         // console.log(res)

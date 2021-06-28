@@ -1,12 +1,20 @@
 import React from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import Header from "../components/Header";
+import {StatusBar} from "expo-status-bar";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 22
     },
+    container1: {
+        flex: 1,
+
+    },
     sectionHeader: {
+        borderWidth:1,
         marginTop:10,
         paddingTop: 5,
         paddingLeft: 10,
@@ -25,7 +33,15 @@ const styles = StyleSheet.create({
 
 const cv = () => {
     return (
+        <View style={styles.container1}>
+            <Header/>
+
         <View style={styles.container}>
+
+            <StatusBar
+                animated={true}
+                backgroundColor="#61dafb"
+            />
             <SectionList
                 sections={[
                     {title: 'Arts Stream', data: ['Arts  (SP)', 'Arts  (SAB)', 'Communication Studies','Peace and Conflict Resolution',
@@ -62,6 +78,7 @@ const cv = () => {
                 renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
                 keyExtractor={(item, index) => index}
             />
+        </View>
         </View>
     );
 }

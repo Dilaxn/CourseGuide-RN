@@ -5,11 +5,18 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import {StatusBar} from "expo-status-bar";
 import Background from "../components/Background";
 import LoginScreen from "./LoginScreen";
+import Header from "../components/Header";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 22
+        paddingTop: 22,
+
+    },
+    container1: {
+        flex: 1,
+
+
     },
     sectionHeader: {
         paddingTop: 2,
@@ -41,13 +48,12 @@ const titleConfig = {
 const UniversityList = ({navigation}) => {
     return (
 
-
+<View style={styles.container1}>
+    <StatusBar/>
+        <Header props={"hello"}/>
         <View style={styles.container}>
 
-            <StatusBar
-                animated={true}
-                backgroundColor="#61dafb"
-            />
+
             {/*<NavigationBar*/}
             {/*    title={titleConfig}*/}
             {/*    rightButton={rightButtonConfig}*/}
@@ -134,7 +140,7 @@ const UniversityList = ({navigation}) => {
 
             </ScrollView>
      </View>
-
+</View>
     );
 }
 

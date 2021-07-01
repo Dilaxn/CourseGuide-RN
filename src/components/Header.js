@@ -6,7 +6,6 @@ import {useEffect, useState} from "react";
 export default (props) => {
     let [x, setX]  = useState('');
     useEffect(() => {
-        // toast.success(`Hey ${props.props.name}, Welcome back!`);
         console.log(props.props)
          setX(props.props)
     }, []);
